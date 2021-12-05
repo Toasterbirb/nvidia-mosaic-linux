@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $1 in
+	on) sudo sed -i 's/"nvidiaXineramaInfo" "[A-Za-z]*"/"nvidiaXineramaInfo" "False"/' /etc/X11/xorg.conf ;;
+	off) sudo sed -i 's/"nvidiaXineramaInfo" "[A-Za-z]*"/"nvidiaXineramaInfo" "True"/' /etc/X11/xorg.conf ;;
+	--help|help) echo -e "Commands:\n\ton\tTurns 3x1 mosaic mode on. All 3 monitors act as one\n\toff\tTurns 3x1 mosaic off. Monitors work separately" ;;
+	*) echo "Invalid argument" ;;
+esac
